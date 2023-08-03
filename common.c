@@ -80,6 +80,8 @@ void bkr_destroy()
 {
     SAFE_DESTROY_POOL(bkr_rgb_pool);
     _bkr_destroy_octree_env();
+
+    xmem_clean_up();
 }
 
 int _stats_cmp(const void* a, const void* b)
@@ -88,6 +90,6 @@ int _stats_cmp(const void* a, const void* b)
     {
         return -(((bkr_color_stats*)a)->count - ((bkr_color_stats*)b)->count);
     }
-    
+
     return -(((bkr_color_stats*)a)->value - ((bkr_color_stats*)b)->value);
 }
